@@ -31,6 +31,17 @@ import {
 } from "../src/core.ts";
 import type { NonEmptyList } from "./utility_types.ts";
 
+if (!Set.prototype.symmetricDifference) {
+  Set.prototype.symmetricDifference = function <T>(other: Set<T>) {
+    const a = new Set(this);
+    const b = new Set(other);
+    const result = new Set<T>();
+    for (const v of a) if (!b.has(v)) result.add(v);
+    for (const v of b) if (!a.has(v)) result.add(v);
+    return result;
+  };
+}
+
 // isEqual
 Deno.test("isEqual: numbers and strings", () => {
   assert(isEqual("1", 1));
