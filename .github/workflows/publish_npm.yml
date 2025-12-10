@@ -31,5 +31,9 @@ jobs:
           node-version: 20
           registry-url: https://registry.npmjs.org/
 
+      - name: Update npm
+        run: npm install -g npm@latest
+      - run: npm ci
+
       - name: Publish to NPM
         run: cd npm && npm publish --access public
