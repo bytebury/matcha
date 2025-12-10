@@ -1,5 +1,18 @@
+/**
+ * A representation of a duration of time within a codebase.
+ * This class provides a way to work with durations of time in a type-safe manner.
+ *
+ * @example Converting seconds to milliseconds
+ * ```ts
+ * setTimeout(() => {}, Duration.fromSeconds(1).toMilliseconds());
+ * ```
+ * @example Converting minutes to milliseconds
+ * ```ts
+ * setTimeout(() => {}, Duration.fromMinutes(1).toMilliseconds());
+ * ```
+ */
 export class Duration {
-  constructor(private readonly milliseconds: number) {}
+  private constructor(private readonly milliseconds: number) {}
 
   /**
    * Creates a Duration from milliseconds.

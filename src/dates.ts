@@ -113,8 +113,10 @@ export function monthsBetween(start: Date, end: Date): number {
  * The date must be equal or past for it to count as a full year.
  *
  * @example
+ * ```ts
  * yearsBetween(new Date('2007-08-01', '2008-07-31')); // 0
  * yearsBetween(new Date('2007-08-01', '2008-08-01')); // 1
+ * ```
  */
 export function yearsBetween(start: Date, end: Date): number {
   const startDate = new Date(start);
@@ -136,38 +138,65 @@ export function yearsBetween(start: Date, end: Date): number {
   return Math.abs(years);
 }
 
+/**
+ * Checks if a date is a Sunday.
+ */
 export function isSunday(date: Date): boolean {
   return new Date(date).getDay() === 0;
 }
 
+/**
+ * Checks if a date is a Monday.
+ */
 export function isMonday(date: Date): boolean {
   return new Date(date).getDay() === 1;
 }
 
+/**
+ * Checks if a date is a Tuesday.
+ */
 export function isTuesday(date: Date): boolean {
   return new Date(date).getDay() === 2;
 }
 
+/**
+ * Checks if a date is a Wednesday.
+ */
 export function isWednesday(date: Date): boolean {
   return new Date(date).getDay() === 3;
 }
 
+/**
+ * Checks if a date is a Thursday.
+ */
 export function isThursday(date: Date): boolean {
   return new Date(date).getDay() === 4;
 }
 
+/**
+ * Checks if a date is a Friday.
+ */
 export function isFriday(date: Date): boolean {
   return new Date(date).getDay() === 5;
 }
 
+/**
+ * Checks if a date is a Saturday.
+ */
 export function isSaturday(date: Date): boolean {
   return new Date(date).getDay() === 6;
 }
 
+/**
+ * Checks if a date is a weekend.
+ */
 export function isWeekend(date: Date): boolean {
   return isSaturday(date) || isSunday(date);
 }
 
+/**
+ * Checks if a date is a weekday.
+ */
 export function isWeekday(date: Date): boolean {
   return !isWeekend(date);
 }
@@ -178,6 +207,7 @@ export function isWeekday(date: Date): boolean {
 export function isInPast(date: Date): boolean {
   return date < today();
 }
+
 /**
  * Determines if the date is in the future.
  *
@@ -189,6 +219,7 @@ export function isInPast(date: Date): boolean {
 export function isInFuture(date: Date): boolean {
   return date >= tomorrow();
 }
+
 /**
  * Determines if the date is today.
  */
