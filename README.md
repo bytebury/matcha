@@ -16,11 +16,14 @@ correctness.
 You can install this application from `npm` or `jsr`.
 
 ```sh
+# recommended if using NodeJS
+npx jsr add @boba/matcha
+
+# old-fashion npm
 npm install @bobatea/matcha --save
 
-# or, if you're using JSR
-
-deno add jsr:@bobatea/matcha
+# or, if you're using Deno
+deno add jsr:@boba/matcha
 ```
 
 ## Sample Usage
