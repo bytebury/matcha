@@ -7,6 +7,7 @@ import {
 } from "@std/assert";
 
 import {
+  average,
   clone,
   distinct,
   falsy,
@@ -314,4 +315,31 @@ Deno.test("sum keyed objects", () => {
 
 Deno.test("sum empty array", () => {
   assertStrictEquals(sum([]), 0);
+});
+
+// average
+Deno.test("average numbers", () => {
+  assertStrictEquals(average([1, 2, 3]), 2);
+  assertStrictEquals(average([1, 2, 3, 4]), 2.5);
+  assertStrictEquals(average([1, 2, 3, 4, 5]), 3);
+});
+
+Deno.test("average keyed objects", () => {
+  assertStrictEquals(
+    average([{ value: 1 }, { value: 2 }, { value: 3 }], "value"),
+    2,
+  );
+  assertStrictEquals(average([{ value: 1 }, { value: -1 }], "value"), 0);
+  assertEquals(
+    average([
+      { age: 10 },
+      { age: 18 },
+      { age: 12 },
+    ], "age"),
+    13.333333333333334,
+  );
+});
+
+Deno.test("average empty array", () => {
+  assertStrictEquals(average([]), 0);
 });
