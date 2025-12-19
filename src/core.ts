@@ -388,6 +388,7 @@ export function sum(list: any[], key?: PropertyKey): number {
  * ```ts
  * average([1, 2, 3]); // 2
  * average([{ x: 1 }, { x: 2 }], "x"); // 1.5
+ * average([]); // 0
  * ```
  */
 export function average(list: number[]): number;
@@ -397,13 +398,5 @@ export function average<T extends Record<PropertyKey, number>>(
 ): number;
 // deno-lint-ignore no-explicit-any
 export function average(list: any[], key?: PropertyKey): number {
-  if (list.length === 0) return 0;
-  if (typeof list[0] === "number") {
-    return (list as number[]).reduce((a, v) => a + v, 0) / list.length;
-  }
-  return (list as Record<PropertyKey, number>[]).reduce(
-    // deno-lint-ignore no-explicit-any
-    (a, v) => a + (v as any)[key!],
-    0,
-  ) / list.length;
+  return (sum(list, key as PropertyKey) / list.length) || 0;
 }
