@@ -2,7 +2,7 @@
 
 <img src="./assets/logo.png" alt="Boba Logo" width="128" height="128" /><br />
 
-# matcha
+# boba
 
 Deliciously energize your projects with boba, a TypeScript utility
 library<br /> to help speed up your development cycle with a focus on
