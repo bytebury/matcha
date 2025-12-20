@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/logo.png" alt="Boba Logo" width="128" height="128" /><br />
+<img src="./assets/logo.png" alt="Boba Logo" width="256" height="256" /><br />
 
 # boba
 
