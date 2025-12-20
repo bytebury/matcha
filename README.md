@@ -4,7 +4,7 @@
 
 # matcha
 
-Deliciously energize your projects with matcha, a TypeScript utility
+Deliciously energize your projects with boba, a TypeScript utility
 library<br /> to help speed up your development cycle with a focus on
 correctness.
 
