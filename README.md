@@ -10,6 +10,8 @@ stay out of your way, and feel natural to use in everyday projects.
 
 <hr />
 
+</div>
+
 ## Getting Started
 
 You can install this application from `npm` or `jsr`.
