@@ -10,6 +10,7 @@ await build({
   outDir: "./npm",
   shims: {
     deno: true,
+    timers: true,
   },
   compilerOptions: {
     target: "ES2020",

@@ -1,5 +1,4 @@
 import { assert } from "@std/assert";
-import { FakeTime } from "@std/testing/time";
 
 import type {
   Days,
@@ -85,8 +84,9 @@ Deno.test("Duration.years", () => {
   assert(duration.toYears() === 1);
 });
 
-Deno.test("Duration.sleep", () => {
-  const time = new FakeTime();
+// Unfortunately, FakeTime doesn't play well with NPM.
+// So, we are temporarily using a real sleep.
+Deno.test("Duration.sleep", async () => {
   const duration = Duration.seconds(1 as Seconds);
 
   let done = false;
@@ -95,15 +95,14 @@ Deno.test("Duration.sleep", () => {
   });
 
   assert(!done);
-  time.tick(duration.toMilliseconds());
-
-  time.restore();
-  return promise;
+  await promise;
+  assert(done);
 });
 
-Deno.test("sleep", () => {
-  const time = new FakeTime();
-  const duration = 1_000 as Milliseconds;
+// Unfortunately, FakeTime doesn't play well with NPM.
+// So, we are temporarily using a real sleep.
+Deno.test("sleep", async () => {
+  const duration = 500 as Milliseconds;
 
   let done = false;
   const promise = sleep(duration).then(() => {
@@ -111,8 +110,6 @@ Deno.test("sleep", () => {
   });
 
   assert(!done);
-  time.tick(duration);
-
-  time.restore();
-  return promise;
+  await promise;
+  assert(done);
 });
